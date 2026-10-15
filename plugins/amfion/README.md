@@ -41,12 +41,20 @@ which needs no sign-in. Help: <https://amfionhq.com/help/claude> (Claude) and
 
 ## Data
 
-The plugin sends Amfion the website address you ask it to build from and the
-test messages you send to a preview. Amfion reads that public website to
-build the preview, keeps the preview for about a week unless the owner keeps
-it, and records which assistant app started it. Test conversations contact
-no customer and send no email. The plugin sends nothing else and stores
-nothing on your computer. Amfion's Privacy Policy: <https://amfionhq.com/privacy>.
+Depending on the tool you use, the plugin sends Amfion the business type and
+needs you describe, the website address, the business's Amfion address,
+connected domain or short name, preview and conversation identifiers, and
+test messages. The MCP client may also send its name, version and session
+identifier.
+
+Amfion reads the public website to build the preview and records which
+assistant app started it. Unclaimed previews and their conversations are
+deleted 7 days after last use and no later than 30 days after creation;
+measurement records without business names, websites or contact details
+remain. Claimed business account data is retained until deleted under the
+Privacy Policy. Deleted database data can remain in encrypted backups for
+up to 12 weeks. Test conversations contact no customer and send no email.
+Amfion's Privacy Policy: <https://amfionhq.com/privacy>.
 Terms: <https://amfionhq.com/terms>.
 
 ## Limits

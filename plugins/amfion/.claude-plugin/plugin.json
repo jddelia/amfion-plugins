@@ -9,6 +9,11 @@
     "url": "https://amfionhq.com"
   },
   "homepage": "https://amfionhq.com/help/claude",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://amfionhq.com/help/claude",
+  "supportUrl": "https://amfionhq.com/help/claude",
+  "privacyPolicyUrl": "https://amfionhq.com/privacy",
+  "termsOfServiceUrl": "https://amfionhq.com/terms",
   "repository": "https://github.com/jddelia/amfion-plugins",
   "license": "MIT",
   "keywords": [
