@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.amfionhq/front-desk-setup",
+  "title": "Amfion front desk setup",
+  "description": "Build and test an AI front desk for a service business from its website, before signing up.",
+  "version": "1.0.0",
+  "websiteUrl": "https://amfionhq.com/help/claude",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.amfionhq.com/v1/setup/mcp"
+    }
+  ]
+}
