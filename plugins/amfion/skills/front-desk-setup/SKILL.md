@@ -10,6 +10,11 @@ prices, hours and policies. These steps take a person from "would this work
 for my business?" to a tested preview they can keep. You use the Amfion
 tools; the person decides and signs up themselves.
 
+Previews created through AI assistants are chat-only until the owner claims
+them: they generate no phone greeting and accept no phone calls. Phone
+features for claimed businesses are part of Amfion's live service, subject
+to the business's plan.
+
 ## 1. Check the fit first when they are deciding
 
 Call `check_amfion_fit` with their kind of business and what they want it to

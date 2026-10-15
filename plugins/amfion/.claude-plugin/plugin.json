@@ -1,7 +1,7 @@
 {
   "name": "amfion",
   "displayName": "Amfion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
   "author": {
     "name": "Amfion",

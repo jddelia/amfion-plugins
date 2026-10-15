@@ -12,7 +12,7 @@
       "name": "amfion",
       "source": "./plugins/amfion",
       "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "author": {
         "name": "Amfion",
         "email": "admin@amfionhq.com",

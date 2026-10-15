@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "amfion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
   "author": {
     "name": "Amfion",
@@ -24,7 +24,7 @@
       "interface": {
         "displayName": "Amfion",
         "shortDescription": "AI front desk for bookings",
-        "longDescription": "Amfion is an AI front desk for service businesses that take appointments: it answers website chat, phone calls, texts and email from the business's own services, prices, hours and policies, books appointments, and hands a conversation to a person when it should. With this plugin you can check whether it fits a business (including what it does not do), build a preview from the business's website before anyone signs up, see what it learned and what it is unsure of, test it with the questions customers ask, and get the exact code to add a live Amfion front desk to a website. It creates no account and publishes nothing: the business owner keeps a preview by signing up themselves. Test conversations contact no one and send no email.",
+        "longDescription": "Amfion is an AI front desk for service businesses that take appointments: it answers website chat, phone calls, texts and email from the business's own services, prices, hours and policies, books appointments, and hands a conversation to a person when it should. With this plugin you can check whether it fits a business (including what it does not do), build a preview from the business's website before anyone signs up, see what it learned and what it is unsure of, test it with the questions customers ask, and get the exact code to add a live Amfion front desk to a website. Assistant-created previews are chat-only until the owner claims them: they generate no phone greeting and accept no phone calls. Phone features for claimed businesses are part of Amfion's live service, subject to the business's plan. It creates no account and publishes nothing: the business owner keeps a preview by signing up themselves. Test conversations contact no one and send no email.",
         "developerName": "Amfion",
         "category": "Productivity",
         "capabilities": [
@@ -104,7 +104,7 @@
         "countries": [
           "US"
         ],
-        "release_notes": "First release: check fit, build and test a preview from a business website, and get website install code."
+        "release_notes": "Clarifies setup data handling and chat-only assistant previews; adds Claude directory support and policy links."
       }
     }
   }

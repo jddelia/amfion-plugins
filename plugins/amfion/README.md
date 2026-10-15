@@ -25,6 +25,11 @@ This plugin lets you use it from Claude, ChatGPT and Codex:
 It creates no account and publishes nothing. To keep a preview, the business
 owner opens its Keep link and signs up themselves.
 
+Previews created through AI assistants are chat-only until the owner claims
+them: they generate no phone greeting and accept no phone calls. Phone
+features for claimed businesses are part of Amfion's live service, subject
+to the business's plan.
+
 ## Use it
 
 Install the plugin, then ask in your own words, for example:
