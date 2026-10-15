@@ -1,0 +1,22 @@
+{
+  "name": "amfion",
+  "displayName": "Amfion",
+  "version": "1.0.0",
+  "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
+  "author": {
+    "name": "Amfion",
+    "email": "admin@amfionhq.com",
+    "url": "https://amfionhq.com"
+  },
+  "homepage": "https://amfionhq.com/help/claude",
+  "repository": "https://github.com/jddelia/amfion-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ai receptionist",
+    "front desk",
+    "appointment booking",
+    "small business",
+    "website chat",
+    "answering service"
+  ]
+}

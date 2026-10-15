@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "amfion": {
+      "type": "http",
+      "url": "https://api.amfionhq.com/v1/setup/mcp"
+    }
+  }
+}

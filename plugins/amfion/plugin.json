@@ -1,0 +1,111 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "amfion",
+  "version": "1.0.0",
+  "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
+  "author": {
+    "name": "Amfion",
+    "email": "admin@amfionhq.com",
+    "url": "https://amfionhq.com"
+  },
+  "homepage": "https://amfionhq.com/help/chatgpt",
+  "repository": "https://github.com/jddelia/amfion-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ai receptionist",
+    "front desk",
+    "appointment booking",
+    "small business",
+    "website chat",
+    "answering service"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Amfion",
+        "shortDescription": "AI front desk for bookings",
+        "longDescription": "Amfion is an AI front desk for service businesses that take appointments: it answers website chat, phone calls, texts and email from the business's own services, prices, hours and policies, books appointments, and hands a conversation to a person when it should. With this plugin you can check whether it fits a business (including what it does not do), build a preview from the business's website before anyone signs up, see what it learned and what it is unsure of, test it with the questions customers ask, and get the exact code to add a live Amfion front desk to a website. It creates no account and publishes nothing: the business owner keeps a preview by signing up themselves. Test conversations contact no one and send no email.",
+        "developerName": "Amfion",
+        "category": "Productivity",
+        "capabilities": [
+          "Check fit and pricing",
+          "Build a preview from a website",
+          "Test with customer questions",
+          "Website install code"
+        ],
+        "websiteURL": "https://amfionhq.com",
+        "supportURL": "https://amfionhq.com/help/chatgpt",
+        "privacyPolicyURL": "https://amfionhq.com/privacy",
+        "termsOfServiceURL": "https://amfionhq.com/terms",
+        "defaultPrompt": [
+          "Can an AI front desk answer calls and book jobs for my plumbing company?",
+          "Build an AI receptionist preview from my business website.",
+          "Give me the code to add my Amfion chat to my website."
+        ],
+        "brandColor": "#1E2ACC",
+        "brandColorDark": "#8C9BFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/front-desk-setup/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Check fit, including a limit",
+              "prompt": "Can an AI receptionist answer the phone for my plumbing company and put the jobs into ServiceTitan?",
+              "tools_triggered": "check_amfion_fit",
+              "expected_behavior": "Says phone answering is available (with the plans that include it) and that Amfion does not write bookings into ServiceTitan, without overstating either."
+            },
+            {
+              "description": "Build a preview from a website",
+              "prompt": "Build an AI front desk preview from harbor-paws.amfionhq.com.",
+              "tools_triggered": "build_front_desk_preview, get_front_desk_preview",
+              "expected_behavior": "Builds the preview, waits until it is ready, and summarizes the services and prices it found, what it marked as assumed, and the preview and Keep links."
+            },
+            {
+              "description": "Report what it is unsure of",
+              "prompt": "What did the preview not know about the business?",
+              "tools_triggered": "get_front_desk_preview",
+              "expected_behavior": "Lists the items the preview marked as assumed or missing, such as prices not on the website or appointment lengths, without presenting them as facts."
+            },
+            {
+              "description": "Test it as a customer",
+              "prompt": "Test it: ask how much a full groom is for a large dog and whether Saturday morning is open.",
+              "tools_triggered": "ask_front_desk_preview",
+              "expected_behavior": "Sends the question as a customer and reports the front desk's reply, including any times it offered, and notes that it was a test that contacted no one."
+            },
+            {
+              "description": "Get website install code",
+              "prompt": "Give me the code to add the harbor-paws Amfion chat to their website.",
+              "tools_triggered": "get_website_install",
+              "expected_behavior": "Returns the exact chat bubble script for harbor-paws, where to place it, the Content-Security-Policy entries, and the checklist to confirm it works."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated writing task",
+              "prompt": "Write a short marketing email for my bakery's weekend sale."
+            },
+            {
+              "description": "Payment",
+              "prompt": "Transfer $50 to my supplier."
+            },
+            {
+              "description": "General knowledge",
+              "prompt": "What is the capital of Australia?"
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments. Amfion's plans are bought on amfionhq.com by the business owner."
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "First release: check fit, build and test a preview from a business website, and get website install code."
+      }
+    }
+  }
+}

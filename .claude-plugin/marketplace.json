@@ -1,0 +1,33 @@
+{
+  "name": "amfion",
+  "owner": {
+    "name": "Amfion",
+    "email": "admin@amfionhq.com"
+  },
+  "metadata": {
+    "description": "Amfion plugins for Claude, ChatGPT and Codex."
+  },
+  "plugins": [
+    {
+      "name": "amfion",
+      "source": "./plugins/amfion",
+      "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Amfion",
+        "email": "admin@amfionhq.com",
+        "url": "https://amfionhq.com"
+      },
+      "homepage": "https://amfionhq.com/help/claude",
+      "license": "MIT",
+      "keywords": [
+        "ai receptionist",
+        "front desk",
+        "appointment booking",
+        "small business",
+        "website chat",
+        "answering service"
+      ]
+    }
+  ]
+}
