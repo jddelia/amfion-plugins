@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "amfion",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Build and test an AI front desk for a service business from its website, check what Amfion can and cannot do, and add a live Amfion front desk to a website.",
   "author": {
     "name": "Amfion",
@@ -84,27 +84,31 @@
           ],
           "negative": [
             {
-              "description": "Unrelated writing task",
-              "prompt": "Write a short marketing email for my bakery's weekend sale."
+              "description": "Unrelated writing task: writing a promotional email does not require Amfion's business setup, preview testing, or website installation tools.",
+              "prompt": "Write a short marketing email for my bakery's weekend sale.",
+              "expected_behavior": "Do not call any Amfion tool. Draft the requested marketing email directly, using placeholders or a concise clarification for missing sale details; do not claim to send it."
             },
             {
-              "description": "Payment",
-              "prompt": "Transfer $50 to my supplier."
+              "description": "Unsupported payment: Amfion's setup tools cannot transfer money or pay suppliers.",
+              "prompt": "Transfer $50 to my supplier.",
+              "expected_behavior": "Do not call any Amfion tool or claim to transfer money. Explain that this plugin cannot make payments and suggest using the user's own payment service; do not request banking credentials."
             },
             {
-              "description": "General knowledge",
-              "prompt": "What is the capital of Australia?"
+              "description": "General knowledge: answering a geography question does not require Amfion's business setup, preview testing, or website installation tools.",
+              "prompt": "What is the capital of Australia?",
+              "expected_behavior": "Do not call any Amfion tool. Answer directly that the capital of Australia is Canberra."
             }
           ]
         },
         "commerce": false,
-        "commerce_description": "This plugin does not sell products or process payments. Amfion's plans are bought on amfionhq.com by the business owner."
+        "commerce_description": "This plugin does not sell products or process payments. Amfion's plans are bought on amfionhq.com by the business owner.",
+        "demo_recording_url": "https://github.com/jddelia/amfion-plugins/releases/download/review-2026-10-15/amfion-chatgpt-demo-1.0.2.mp4"
       },
       "publication": {
         "countries": [
           "US"
         ],
-        "release_notes": "Clarifies setup data handling and chat-only assistant previews; adds Claude directory support and policy links."
+        "release_notes": "Adds a reviewer walkthrough and explicit expected fallbacks for unrelated writing, unsupported payments, and general knowledge requests."
       }
     }
   }
