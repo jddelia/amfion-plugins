@@ -1,0 +1,115 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "amfion-front-desk",
+  "version": "1.0.3",
+  "description": "Inspect and test a service business front desk from its website, check Amfion capabilities and limitations, and obtain website installation code for an existing live business.",
+  "author": {
+    "name": "Amfion",
+    "email": "admin@amfionhq.com",
+    "url": "https://amfionhq.com"
+  },
+  "homepage": "https://amfionhq.com/help/chatgpt",
+  "repository": "https://github.com/jddelia/amfion-plugins",
+  "license": "MIT",
+  "keywords": [
+    "ai receptionist",
+    "front desk",
+    "appointment booking",
+    "small business",
+    "website chat",
+    "answering service"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Amfion",
+        "shortDescription": "Inspect and test front desks",
+        "longDescription": "Use Amfion's five tools to check capabilities and limitations, build a temporary front desk from a service business's public website, inspect the services, customer prices, hours and policies it found, and test its answers in conversation. The completed in-chat report includes extracted facts, labeled assumptions, unresolved questions and observed test results. It can be copied and kept after the temporary workspace expires, without an Amfion account. Previews are chat-only: they generate no phone greeting, accept no phone calls, and cannot notify a team or arrange callbacks. Test bookings contact no customer and send no email. For a business already live on Amfion, the plugin provides the exact website chat code, placement instructions and Content-Security-Policy settings. The tools create no user account and publish nothing. Inspection and testing remain in conversation, with no browser editing or account-activation handover. Daily build limits, preview expiry and test-message limits apply. Amfion is built for United States service businesses and is not intended for businesses handling protected health information.",
+        "developerName": "Amfion",
+        "category": "Productivity",
+        "capabilities": [
+          "Check capabilities and limitations",
+          "Inspect a website-based front desk",
+          "Test with customer questions",
+          "Existing business website install code"
+        ],
+        "websiteURL": "https://amfionhq.com",
+        "supportURL": "https://amfionhq.com/help/chatgpt",
+        "privacyPolicyURL": "https://amfionhq.com/privacy",
+        "termsOfServiceURL": "https://amfionhq.com/terms",
+        "defaultPrompt": [
+          "Can Amfion answer calls for my plumbing company and put jobs in ServiceTitan?",
+          "Build a front desk from my business website and show what needs confirming.",
+          "Give me the code to add my existing Amfion chat to my website."
+        ],
+        "brandColor": "#1E2ACC",
+        "brandColorDark": "#8C9BFF",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "onboardingSkill": "./skills/front-desk-setup/SKILL.md",
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Check fit, including a limit",
+              "prompt": "Can an AI receptionist answer the phone for my plumbing company and put the jobs into ServiceTitan?",
+              "tools_triggered": "check_amfion_fit",
+              "expected_behavior": "Reports phone answering as a live-product capability with applicable limitations, states that this preview is chat-only, and says Amfion does not write bookings into ServiceTitan. Does not display Amfion plans, prices or offers."
+            },
+            {
+              "description": "Build a preview from a website",
+              "prompt": "Build an AI front desk preview from harbor-paws.amfionhq.com.",
+              "tools_triggered": "build_front_desk_preview, get_front_desk_preview",
+              "expected_behavior": "Returns a preview handle, polls until ready, and summarizes the extracted services, customer prices and assumptions in conversation. Returns no browser preview, Keep, account-creation or checkout link."
+            },
+            {
+              "description": "Report what it is unsure of",
+              "prompt": "What did the preview not know about the business?",
+              "tools_triggered": "get_front_desk_preview",
+              "expected_behavior": "Using the preview handle from the preceding build, lists its assumed or missing information without presenting assumptions as facts. Inspection remains in conversation."
+            },
+            {
+              "description": "Test it as a customer",
+              "prompt": "Test it: ask how much a full groom is for a large dog and whether Saturday morning is open.",
+              "tools_triggered": "ask_front_desk_preview",
+              "expected_behavior": "Using the preceding preview, asks the question as a customer and reports the reply and any proposed times. States that this is a test that contacted no customer. A request for a person must not claim a notification or callback was arranged."
+            },
+            {
+              "description": "Get website install code",
+              "prompt": "Give me the code to add the harbor-paws Amfion chat to their website.",
+              "tools_triggered": "get_website_install",
+              "expected_behavior": "Returns the exact chat bubble script for the existing live harbor-paws business, placement guidance, Content-Security-Policy entries and verification steps. Preview identifiers receive an explanation that installation requires an existing live business, with no activation link."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated writing task: writing a promotional email does not require Amfion's business setup, preview testing, or website installation tools.",
+              "prompt": "Write a short marketing email for my bakery's weekend sale.",
+              "expected_behavior": "Do not call any Amfion tool. Draft the requested marketing email directly, using placeholders or a concise clarification for missing sale details; do not claim to send it."
+            },
+            {
+              "description": "Unsupported payment: Amfion's setup tools cannot transfer money or pay suppliers.",
+              "prompt": "Transfer $50 to my supplier.",
+              "expected_behavior": "Do not call any Amfion tool or claim to transfer money. Explain that this plugin cannot make payments and suggest using the user's own payment service; do not request banking credentials."
+            },
+            {
+              "description": "General knowledge: answering a geography question does not require Amfion's business setup, preview testing, or website installation tools.",
+              "prompt": "What is the capital of Australia?",
+              "expected_behavior": "Do not call any Amfion tool. Answer directly that the capital of Australia is Canberra."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "The plugin processes no payments, displays no Amfion subscription plans, and provides no account creation, upgrade or checkout flow. Website installation is for existing live Amfion businesses.",
+        "demo_recording_url": "https://github.com/jddelia/amfion-plugins/releases/download/review-openai-2026-10-19/amfion-openai-1.0.3-walkthrough.mp4"
+      },
+      "publication": {
+        "countries": [
+          "US"
+        ],
+        "release_notes": "Uses the dedicated OpenAI endpoint for capability checks, website-based front desk inspection and chat tests, plus installation for existing live businesses. Removes Amfion subscription offers and browser preview or account-activation links from this plugin workflow. Clarifies activation boundaries and completes inspections with a reusable findings report. No runtime or Claude-package changes."
+      }
+    }
+  }
+}
